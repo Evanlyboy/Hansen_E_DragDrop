@@ -7,6 +7,8 @@
 		theGameBoard = document.querySelector(".puzzle-board");
 		theLink = document.querySelector("a");
 
+		const piecePaths = ["topLeft", "topRight", "bottomLeft", "bottomRight"];
+
 		theLink.addEventListener("click", function(event) { event.preventDefault();})
 
 	// theButtons become this:
@@ -17,12 +19,13 @@
 	// <img>
 	// ]
 
-	function changeBgImg() {
+	function changeImageSet() {
 		// debugger; //pause our code at this point
-		let key = this.dataset.bgref;
-		console.log(key);
+		theGameBoard.style.backgroundImage = `url(../images/backGround${this.dataset.bgref}.jpg)`;
 
-		theGameBoard.style.backgroundImage = `url(../images/backGround${key}.jpg)`;
+		piecePaths.forEach((piece, index) => {
+			puzzlePieces[index].src = `images/${piece + this.dataset.bgref}.jpg`
+		})
 
 		// `` => this is a javascript template string. You can use it to write a but of inline JavaScript while will be interpreted at runtime
 		// search for MDN JavaScript Template String
@@ -54,8 +57,10 @@
 	}
 
 	// these are the "triggers" we want the user to use to fire off events
-	theButtons.forEach(button => button.addEventListener("click", changeBgImg));
+	theButtons.forEach(button => button.addEventListener("click", changeImageSet));
+
 	puzzlePieces.forEach(piece => piece.addEventListener("dragstart", startDrag));
+
 	dropZones.forEach(zone => {
 		zone.addEventListener("dragover", draggedOver);
 		zone.addEventListener("drop", handleDrop);
