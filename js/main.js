@@ -5,7 +5,8 @@
 		puzzlePieces = document.querySelectorAll(".puzzle-pieces *"),
 		dropZones = document.querySelectorAll(".drop-zone"),
 		theGameBoard = document.querySelector(".puzzle-board");
-		theLink = document.querySelector("a");
+		theLink = document.querySelector("a")
+		dragZone =document.querySelector("b");
 
 		const piecePaths = ["topLeft", "topRight", "bottomLeft", "bottomRight"];
 
@@ -19,6 +20,10 @@
 	// <img>
 	// ]
 
+
+	//first we're gonna prevent objects from stacking on one another
+	//best way to do this I think is to make an if statement, stating that
+	//if (element) has (child) then don't do thing, otherwise do thing
 	function changeImageSet() {
 		// debugger; //pause our code at this point
 		theGameBoard.style.backgroundImage = `url(../images/backGround${this.dataset.bgref}.jpg)`;
@@ -52,7 +57,15 @@
 		let currentEl = event.dataTransfer.getData("draggedElement");
 		// appendChild (add child) is a built-in JavaScript method that adds an element to a containing element
 		// the "this" keyword is a ref to a the element you're dropping onto
-		this.appendChild(document.querySelector(`#${currentEl}`));
+
+		//HAHA BITCH FINALLY GOT IT WORKING
+		//childElementCount for the win
+		if(this.childElementCount == 0){
+			this.appendChild(document.querySelector(`#${currentEl}`));
+		}
+		else {
+			console.log(this.childElementCount);
+		}
 		// console.log(`dropped this element:`, currentEl);
 	}
 
