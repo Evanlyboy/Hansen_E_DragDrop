@@ -20,12 +20,23 @@
 	// <img>
 	// ]
 
-
 	//first we're gonna prevent objects from stacking on one another
 	//best way to do this I think is to make an if statement, stating that
 	//if (element) has (child) then don't do thing, otherwise do thing
 	function changeImageSet() {
 		// debugger; //pause our code at this point
+
+		//ok now we are going to make a for loop that will reset the pieces back to their starting location
+		for(let i = 0; i < 5; i++){
+			if(puzzlePieces[i] == undefined){
+				i++;
+			} else{
+			// puzzlePieces[i].appendChild(document.querySelector(piecePaths));
+			console.log(puzzlePieces);
+			}
+		}
+
+		// set the background image to be the one of the matching puzzle
 		theGameBoard.style.backgroundImage = `url(../images/backGround${this.dataset.bgref}.jpg)`;
 
 		piecePaths.forEach((piece, index) => {
