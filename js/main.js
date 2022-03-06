@@ -6,9 +6,13 @@
 		dropZones = document.querySelectorAll(".drop-zone"),
 		theGameBoard = document.querySelector(".puzzle-board");
 		theLink = document.querySelector("a")
-		dragZone =document.querySelector("b");
+		dragZone = document.querySelector("b");
 
 		const piecePaths = ["topLeft", "topRight", "bottomLeft", "bottomRight"];
+		// const piecePathsRef = [document.getElementById("topLeft"), document.getElementById("topRight"), document.getElementById("bottomLeft"), document.getElementById("bottomRight")];
+		const piecePathsRef = ['<img id="topLeft" draggable="true" src="images/topLeft0.jpg" class="puzzle-image" alt="top left">', '<img id="topRight" draggable="true" src="images/topRight0.jpg" class="puzzle-image" alt="top right">', '<img id="bottomLeft" draggable="true" src="images/bottomLeft0.jpg" class="puzzle-image" alt="bottom left">', '<img id="bottomRight" draggable="true" src="images/bottomRight0.jpg" class="puzzle-image" alt="bottom right">']
+
+		// let resetPieces = '<img id="topLeft" draggable="true" src="images/topLeft0.jpg" class="puzzle-image" alt="top left">';
 
 		theLink.addEventListener("click", function(event) { event.preventDefault();})
 
@@ -26,12 +30,31 @@
 	function changeImageSet() {
 		// debugger; //pause our code at this point
 
+		//make the puzzle-board nothing
+		// theGameBoard.innerHTML = "";
+		console.log(puzzlePieces);
 		//ok now we are going to make a for loop that will reset the pieces back to their starting location
 		for(let i = 0; i < 5; i++){
 			if(puzzlePieces[i] == undefined){
 				i++;
 			} else{
+			// yeah, not really sure what to do here. Kind of out of ideas
+			// seems pretty complicated
+
 			// puzzlePieces[i].appendChild(document.querySelector(piecePaths));
+			// theGameBoard[i].removeChild(piecePaths[i]);
+			// wait almost got it
+			// if(theGameBoard[i] == null){
+			// 	i++;
+			// } else {
+			// 	document.querySelector("theGameBoard"[i]).removeChild(piecePathsRef[i]);
+			// }
+			// if(puzzlePieces[i] == null){
+			// 	i++;
+			// } else {
+			// 	document.querySelector("puzzlePieces"[i]).appendChild(piecePathsRef[i]); 
+			// }
+			//nope I fail :(
 			console.log(puzzlePieces);
 			}
 		}
