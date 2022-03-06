@@ -1,6 +1,6 @@
 # Hansen_E_DragDrop
 
-[h1] A drag n drop puzzle webpage where you can solve all four puzzles! [/h1]
+A drag n drop puzzle webpage where you can solve all four puzzles!
 
 All you need to run it is a modern web browser. Launch the HTML and play.
 
