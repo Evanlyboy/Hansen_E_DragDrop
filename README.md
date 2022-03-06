@@ -9,6 +9,9 @@ All you need to run it is a modern web browser. Launch the HTML and play.
 Template made by Trev
 Completed by Evan Hansen
 
+
 Made with:
+
 Visual Studio Code
+
 Love
